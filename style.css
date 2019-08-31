@@ -1,0 +1,342 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #0093ff;
+}
+
+/* MENU
+==================*/
+
+header {
+    color: #999;
+    position: absolute;
+    top: -56px;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    background-color: #181818;
+    z-index: 9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    transition: top 1s ease;
+    animation: expand-header 1s ease forwards 2200ms;
+}
+
+header .logo {
+    height: 56px;
+    margin-right: auto;
+}
+
+header .logo img {
+    height: 100%;
+}
+
+header .social {
+    margin-left: auto;
+    padding: 0 2em;
+}
+
+header .menu a {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    min-width: 56px;
+    text-align: center;
+}
+
+header .menu .lnr {
+    opacity: 1;
+    transition: opacity 500ms ease;
+}
+
+header .menu a::after {
+    content: '';
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    color: #0093ff;
+    transition: all 500ms ease;
+}
+
+header .menu a:hover .lnr {
+    opacity: 0;
+}
+
+header .menu a:hover::after {
+    opacity: 1;
+}
+
+header .lnr {
+    font-size: 1.5em;
+}
+
+header .menu a:nth-child(1)::after {
+    content: 'HOME';
+}
+
+header .menu a:nth-child(2)::after {
+    content: 'PROFILE';
+}
+
+header .menu a:nth-child(3)::after {
+    content: 'EXPERIENCE';
+}
+
+header .menu a:nth-child(4)::after {
+    content: 'CONTACT';
+}
+
+/* MAIN
+================*/
+
+div[id$="wrapper"] {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 500ms ease, left 500ms ease 500ms;
+    width: 750px;
+}
+
+div[id$="wrapper"]:not(.active) {
+    left: 200vw;
+    opacity: 0;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: #04010b;
+    background: -webkit-linear-gradient(top, #252627 0, #252627 100%);
+    background: linear-gradient(to bottom, #252627 0, #252627 100%);
+    overflow: hidden;
+    z-index: 5;
+}
+
+.home-wrapper {
+    color: #ffffff;
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    width: 750px;
+}
+
+.home-wrapper svg {
+    display: block;
+}
+
+.home-wrapper>h1 {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 0;
+    opacity: 0;
+    animation: appear 1s ease forwards 2200ms;
+    letter-spacing: -4px;
+}
+
+div.description {
+    max-width: 270px;
+    align-self: flex-end;
+}
+
+.description>svg {
+    align-self: flex-end;
+    opacity: 0;
+    animation: appear 1s ease forwards 2200ms;
+}
+
+svg>g.fill {
+    animation: fill 0.5s ease forwards 2200ms;
+}
+
+svg>g.fill-blue {
+    animation: fill-blue 0.5s ease forwards 2200ms;
+}
+
+svg#first>g:nth-child(1) path {
+    stroke-dasharray: 309;
+    stroke-dashoffset: 309;
+    animation: line-anim 2s ease forwards;
+}
+
+svg#first>g:nth-child(2) path {
+    stroke-dasharray: 286;
+    stroke-dashoffset: 286;
+    animation: line-anim 2s ease forwards 0.1s;
+}
+
+svg#first>g:nth-child(3) path {
+    stroke-dasharray: 173;
+    stroke-dashoffset: 173;
+    animation: line-anim 2s ease forwards 0.2s;
+}
+
+svg#first>g:nth-child(4) path {
+    stroke-dasharray: 173;
+    stroke-dashoffset: 173;
+    animation: line-anim 2s ease forwards 0.3s;
+}
+
+svg#second>g:nth-child(1) path {
+    stroke-dasharray: 353;
+    stroke-dashoffset: 353;
+    animation: line-anim 2s ease forwards 0.4s;
+}
+
+svg#second>g:nth-child(2) path {
+    stroke-dasharray: 225;
+    stroke-dashoffset: 225;
+    animation: line-anim 2s ease forwards 0.5s;
+}
+
+svg#second>g:nth-child(3) path {
+    stroke-dasharray: 317;
+    stroke-dashoffset: 317;
+    animation: line-anim 2s ease forwards 0.6s;
+}
+
+svg#second>g:nth-child(4) path {
+    stroke-dasharray: 250;
+    stroke-dashoffset: 250;
+    animation: line-anim 2s ease forwards .07s;
+}
+
+svg#second>g:nth-child(5) path {
+    stroke-dasharray: 336;
+    stroke-dashoffset: 336;
+    animation: line-anim 2s ease forwards 0.8s;
+}
+
+span.letter {
+    color: #fff;
+    display: inline-block;
+}
+
+span.letter:hover {
+    color: #0093ff;
+}
+
+.rubberBand {
+    animation: rubberBand 1s both;
+}
+
+.mario {
+    position: absolute;
+    bottom: 5rem;
+    height: 75px;
+    left: -100%;
+    animation: mario-run-left 5s linear 2.8s;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 1px;
+}
+
+@media (max-width:992px) {
+    .home-wrapper {
+        width: 520px;
+    }
+}
+
+@media (max-width:768px) {
+    .home-wrapper {
+        width: 300px;
+    }
+    header {
+        font-size: .8em;
+    }
+    header .menu a {
+        min-width: 42px;
+    }
+}
+
+/* ANIMATIONS
+==================*/
+
+@keyframes line-anim {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes rubberBand {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes fill {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: #ffffff;
+    }
+}
+
+@keyframes fill-blue {
+    from {
+        fill: transparent;
+    }
+    to {
+        fill: #0093ff;
+    }
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes mario-run-left {
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes expand-header {
+    to {
+        top: 0;
+    }
+}
