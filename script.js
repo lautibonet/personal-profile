@@ -1,11 +1,56 @@
-var _containers;
-var _currentPage;
-var _animating;
+var _ctx;
 
 $(document).ready(function () {
-    _animating = false;
-    _currentPage = 0;
-    _containers = $('.container');
+    _ctx = document.getElementById('radar-chart').getContext('2d');
+    var _chart = new Chart(_ctx, {
+        type: 'radar',
+        data: {
+            labels: ['JAVA', 'Angular', 'SQL', 'Javascript', 'CSS', 'Flutter'],
+            datasets: [{
+                label: 'Skill Level',
+                data: [90, 91, 80, 75, 75, 50],
+                backgroundColor: [
+                    'rgba(221, 3, 48, 0.5)',
+                ],
+                borderColor: [
+                    'rgba(221, 3, 48, 1)',
+                ]
+            }]
+        },
+        options: {
+            defaultColor: 'rgba(0, 147, 255, 1)',
+            defaultFontColor: 'rgba(0, 147, 255, 1)',
+            defaultFontFamily: "'Montserrat', sans-serif",
+            tooltips: {
+                enabled: false
+            },
+            legend: {
+                display: false
+            },
+            legend: {
+                display: false
+            },
+            scale: {
+                gridLines: {
+                    color: 'rgba(0,0,0,.7)'
+                },
+                angleLines: {
+                    color: 'rgba(0,0,0,.7)'
+                },
+                pointLabels: {
+                    fontSize: '15'
+                },
+                ticks: {
+                    beginAtZero: true,
+                    max: 100,
+                    min: 0,
+                    stepSize: 25
+                }
+            }
+        }
+    });
+
+    console.log(_chart);
 
     $(window).bind('mousewheel', function (e) {
         if (e.originalEvent.wheelDelta / 120 > 0) {
@@ -69,15 +114,3 @@ $(document).ready(function () {
         });
     });
 });
-
-function scrollDown() {
-    if (_currentPage == _containers.length - 1) return;
-    $(_containers[_currentPage]).css('height', 0);
-    _currentPage++;
-}
-
-function scrollUp() {
-    if (_currentPage == 0) return;
-    $(_containers[_currentPage - 1]).css('height', '100vh');
-    _currentPage--;
-}
