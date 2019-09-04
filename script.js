@@ -29,31 +29,44 @@ $(document).ready(function () {
         if ($('#home-wrapper').hasClass('active')) return;
 
         $('.container div.active').toggleClass('active');
-        $('div#home-wrapper').toggleClass('active');
+        $('#wall').addClass('show').delay(500).queue(function (next) {
+            $('#wall').removeClass('show');
+            $('div#home-wrapper').toggleClass('active');
+            next();
+        });
     });
 
     $('#profile').click(function () {
         if ($('#profile-wrapper').hasClass('active')) return;
 
         $('.container div.active').toggleClass('active');
-        $('div#profile-wrapper').toggleClass('active');
-
+        $('#wall').addClass('show').delay(500).queue(function (next) {
+            $('#wall').removeClass('show');
+            $('div#profile-wrapper').toggleClass('active');
+            next();
+        });
     });
 
     $('#experience').click(function () {
         if ($('#experience-wrapper').hasClass('active')) return;
 
         $('.container div.active').toggleClass('active');
-        $('div#experience-wrapper').toggleClass('active');
-
+        $('#wall').addClass('show').delay(500).queue(function (next) {
+            $('#wall').removeClass('show');
+            $('div#experience-wrapper').toggleClass('active');
+            next();
+        });
     });
 
     $('#contact').click(function () {
         if ($('#contact-wrapper').hasClass('active')) return;
 
         $('.container div.active').toggleClass('active');
-        $('div#contact-wrapper').toggleClass('active');
-
+        $('#wall').addClass('show').delay(500).queue(function (next) {
+            $('#wall').removeClass('show');
+            $('div#contact-wrapper').toggleClass('active');
+            next();
+        });
     });
 });
 

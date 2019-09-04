@@ -7,6 +7,7 @@ body {
     width: 100%;
     font-family: 'Montserrat', sans-serif;
     overflow: hidden;
+    background: #252627;
 }
 
 a {
@@ -115,38 +116,39 @@ header .menu a:nth-child(4)::after {
 /* MAIN
 ================*/
 
+.wall {
+    position: absolute;
+    height: 0;
+    right: 0;
+    left: 0;
+    background-color: #181818;
+    z-index: 8;
+    transition: height 500ms ease;
+}
+
+.wall.show {
+    height: 100vh;
+}
+
 div[id$="wrapper"] {
+    transition: width 250ms ease, opacity 500ms ease, transform 500ms ease;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: width 250ms ease, opacity 250ms ease 250ms, left 500ms ease 500ms;
     width: 750px;
 }
 
 div[id$="wrapper"]:not(.active) {
-    width: 500px;
-    left: 200vw;
-    opacity: .25;
-}
-
-div[id$="wrapper"]:not(.active) h1 {
-    font-size: 1rem !important;
-    transition: font-size 250ms ease;
-}
-
-div[id$="wrapper"]:not(.active) p {
-    font-size: .5rem !important;
-    transition: font-size 250ms ease;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale3d(.5, .5, 1);
 }
 
 .container {
     position: relative;
     width: 100%;
     height: 100vh;
-    background: #04010b;
-    background: -webkit-linear-gradient(top, #252627 0, #252627 100%);
-    background: linear-gradient(to bottom, #252627 0, #252627 100%);
+    background: #252627;
     overflow: hidden;
     z-index: 5;
 }
@@ -156,7 +158,6 @@ div[id$="wrapper"]:not(.active) p {
     font-weight: 700;
     display: flex;
     flex-direction: column;
-    width: 750px;
 }
 
 .home-wrapper svg {
