@@ -18,6 +18,10 @@ a:hover {
     color: #0093ff;
 }
 
+p {
+    color: #b4b4b4;
+}
+
 /* MENU
 ==================*/
 
@@ -116,13 +120,24 @@ div[id$="wrapper"] {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    transition: opacity 500ms ease, left 500ms ease 500ms;
+    transition: width 250ms ease, opacity 250ms ease 250ms, left 500ms ease 500ms;
     width: 750px;
 }
 
 div[id$="wrapper"]:not(.active) {
+    width: 500px;
     left: 200vw;
-    opacity: 0;
+    opacity: .25;
+}
+
+div[id$="wrapper"]:not(.active) h1 {
+    font-size: 1rem !important;
+    transition: font-size 250ms ease;
+}
+
+div[id$="wrapper"]:not(.active) p {
+    font-size: .5rem !important;
+    transition: font-size 250ms ease;
 }
 
 .container {
@@ -271,6 +286,45 @@ span.letter:hover {
         min-width: 42px;
     }
 }
+
+/* ABOUT
+==================*/
+
+.profile-wrapper>h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: -4px;
+}
+
+.logo {
+    display: inline-block;
+    height: 18px;
+    width: 18px;
+    background-size: cover;
+    margin-right: .25rem;
+    vertical-align: middle;
+}
+
+.logo.angular {
+    background-image: url('./images/angular.png');
+}
+
+.logo.mysql {
+    background-image: url('./images/my_sql.png');
+}
+
+.logo.java {
+    background-image: url('./images/java.png');
+}
+
+/* .profile-wrapper h1>.letter {
+    color: #0093ff;
+}
+
+.profile-wrapper h1>.letter:hover {
+    color: #ffffff;
+} */
 
 /* ANIMATIONS
 ==================*/
