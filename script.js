@@ -52,17 +52,6 @@ $(document).ready(function () {
 
     console.log(_chart);
 
-    $(window).bind('mousewheel', function (e) {
-        if (e.originalEvent.wheelDelta / 120 > 0) {
-            console.log('scrolling up !');
-            scrollUp();
-        }
-        else {
-            console.log('scrolling down !');
-            scrollDown();
-        }
-    });
-
     $('span.letter').hover(function () {
         $(this).addClass('rubberBand').delay(1000).queue(function (next) {
             $(this).removeClass('rubberBand');

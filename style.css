@@ -319,6 +319,11 @@ span.letter:hover {
     background-image: url('./images/java.png');
 }
 
+.profile-wrapper canvas{
+    height: 250px;
+    width: 250px;
+}
+
 /* .profile-wrapper h1>.letter {
     color: #0093ff;
 }
