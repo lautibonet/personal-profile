@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
         type='text/css'>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="./leaflet.css">
     <title>Personal</title>
 </head>
 
@@ -22,7 +24,7 @@
         <div class="menu">
             <a id="home"><span class="lnr lnr-home"></span></a>
             <a id="profile"><span class="lnr lnr-user"></span></a>
-            <a id="experience"><span class="lnr lnr-cog"></span></a>
+            <a id="skills"><span class="lnr lnr-cog"></span></a>
             <a id="contact"><span class="lnr lnr-envelope"></span></a>
         </div>
         <div class="social">
@@ -35,7 +37,7 @@
 
     <div class="container">
 
-        <div id="home-wrapper" class="home-wrapper active">
+        <div id="home-wrapper" class="home-wrapper ">
             <h1>
                 <span class="letter">L</span>
                 <span class="letter">a</span>
@@ -123,20 +125,21 @@
             </h1>
 
             <p>
-                Argentinian software engineer, coder and <i>asado</i> lover 
+                Argentinian software engineer, coder and <i>asado</i> lover
                 with more than 5 years of experience in end-to-end development and
                 empathy towards design.
             </p>
 
+
+        </div>
+
+        <div id="skills-wrapper" class="skills-wrapper">
             <canvas id="radar-chart"></canvas>
         </div>
 
-        <div id="experience-wrapper" class="experience-wrapper">
-
-        </div>
-
-        <div id="contact-wrapper" class="contact-wrapper">
-
+        <div id="contact-wrapper" class="contact-wrapper active">
+            <div></div>
+            <div id="map"></div>
         </div>
 
         <img class="mario" src="./images/mario.gif" alt="">
@@ -147,7 +150,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+    <script src="./leaflet-src.js"></script>
+    <script src="./grayscale.js"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>

@@ -106,7 +106,7 @@ header .menu a:nth-child(2)::after {
 }
 
 header .menu a:nth-child(3)::after {
-    content: 'EXPERIENCE';
+    content: 'SKILLS';
 }
 
 header .menu a:nth-child(4)::after {
@@ -319,11 +319,6 @@ span.letter:hover {
     background-image: url('./images/java.png');
 }
 
-.profile-wrapper canvas{
-    height: 250px;
-    width: 250px;
-}
-
 /* .profile-wrapper h1>.letter {
     color: #0093ff;
 }
@@ -331,6 +326,24 @@ span.letter:hover {
 .profile-wrapper h1>.letter:hover {
     color: #ffffff;
 } */
+
+div.contact-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 56px;
+    width: 100%;
+    height: 100%;
+}
+
+.skills-wrapper canvas {
+    height: 250px;
+    width: 250px;
+}
+
+#map {
+    height: 100%;
+    width: 50%;
+}
 
 /* ANIMATIONS
 ==================*/

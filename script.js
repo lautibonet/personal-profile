@@ -1,6 +1,23 @@
 var _ctx;
 
 $(document).ready(function () {
+    var mymap = L.map('map').setView([-34.56, -59.66], 7);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 10,
+        id: 'mapbox.dark',
+        accessToken: 'pk.eyJ1IjoibGF1dGlib25ldCIsImEiOiJjazA3MzcweGswMDVwM2ZwaW9pdXh1NzJ3In0.QJZpw_-PNziLLQHvcuA13w'
+    }).addTo(mymap);
+    // var marker = L.marker([-34.59, -58.42]).addTo(mymap);
+    var markers = new L.LayerGroup();
+    var myIcon = L.icon({
+        iconUrl: './images/logo-marker.png',
+        iconSize: [72, 72]
+    });
+    marker = L.marker([-34.29, -58.42], { icon: myIcon }).addTo(markers);;
+    mymap.addLayer(markers);
+
+
     _ctx = document.getElementById('radar-chart').getContext('2d');
     var _chart = new Chart(_ctx, {
         type: 'radar',
@@ -8,7 +25,7 @@ $(document).ready(function () {
             labels: ['JAVA', 'Angular', 'SQL', 'Javascript', 'CSS', 'Flutter'],
             datasets: [{
                 label: 'Skill Level',
-                data: [90, 91, 80, 75, 75, 50],
+                data: [90, 90, 70, 75, 75, 60],
                 backgroundColor: [
                     'rgba(221, 3, 48, 0.5)',
                 ],
@@ -81,13 +98,13 @@ $(document).ready(function () {
         });
     });
 
-    $('#experience').click(function () {
-        if ($('#experience-wrapper').hasClass('active')) return;
+    $('#skills').click(function () {
+        if ($('#skills-wrapper').hasClass('active')) return;
 
         $('.container div.active').toggleClass('active');
         $('#wall').addClass('show').delay(500).queue(function (next) {
             $('#wall').removeClass('show');
-            $('div#experience-wrapper').toggleClass('active');
+            $('div#skills-wrapper').toggleClass('active');
             next();
         });
     });
