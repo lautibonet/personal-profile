@@ -135,14 +135,50 @@ div[id$="wrapper"] {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+    transform-style: preserve-3d;
     width: 750px;
 }
 
 div[id$="wrapper"]:not(.active) {
     opacity: 0;
     transform: translate(-50%, -50%) scale3d(.5, .5, 1);
+    transform-style: preserve-3d;
 }
+
+/* div#home-wrapper, div#profile-wrapper, div#skills-wrapper {
+    transition: width 250ms ease, opacity 500ms ease, transform 500ms ease;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    z-index: 1;
+}
+
+div#home-wrapper:not(.active), div#profile-wrapper:not(.active), div#skills-wrapper:not(.active) {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale3d(.5, .5, 1);
+    z-index: -10;
+}
+
+div#contact-wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    z-index: 1;
+    transition: opacity 250ms ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+div#contact-wrapper:not(.active) {
+    opacity: 0;
+    z-index: -10;
+} */
 
 .container {
     position: relative;
@@ -268,6 +304,7 @@ span.letter:hover {
     animation: mario-run-left 5s linear 2.8s;
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     border-radius: 1px;
+    z-index: 10;
 }
 
 @media (max-width:992px) {
@@ -319,30 +356,68 @@ span.letter:hover {
     background-image: url('./images/java.png');
 }
 
-/* .profile-wrapper h1>.letter {
-    color: #0093ff;
-}
-
-.profile-wrapper h1>.letter:hover {
-    color: #ffffff;
-} */
-
-div.contact-wrapper {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 56px;
-    width: 100%;
-    height: 100%;
-}
-
 .skills-wrapper canvas {
     height: 250px;
     width: 250px;
 }
 
+/* CONTACT
+===================*/
+
+#contact-wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+}
+
+#contact-wrapper .map-wrapper {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    transition: width 500ms ease 250ms;
+}
+
+#contact-wrapper:not(.active) .map-wrapper {
+    width: 0;
+}
+
+#contact-wrapper:not(.active) .map-popup {
+    top: 12rem;
+    opacity: 0;
+}
+
+.contact-wrapper .map-popup {
+    position: absolute;
+    top: 9rem;
+    left: calc(7rem + 50%);
+    height: auto;
+    z-index: 1000;
+    background-color: #fff;
+    padding: 1rem;
+    opacity: 1;
+    transition: top 1s ease 250ms, opacity 1s ease 250ms;
+}
+
+.contact-wrapper .map-popup p {
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: #000;
+    margin: 0;
+}
+
+.contact-wrapper .map-popup p>span {
+    color: #0093ff;
+}
+
+#map .mapLayer {
+    filter: hue-rotate(0) invert(100%);
+}
+
 #map {
     height: 100%;
-    width: 50%;
+    width: 100%;
 }
 
 /* ANIMATIONS

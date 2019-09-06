@@ -1,12 +1,13 @@
 var _ctx;
 
 $(document).ready(function () {
-    var mymap = L.map('map').setView([-34.56, -59.66], 7);
+    var mymap = L.map('map', { zoomControl: false }).setView([-35.50, -60.70], 5);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 10,
-        id: 'mapbox.dark',
-        accessToken: 'pk.eyJ1IjoibGF1dGlib25ldCIsImEiOiJjazA3MzcweGswMDVwM2ZwaW9pdXh1NzJ3In0.QJZpw_-PNziLLQHvcuA13w'
+        maxZoom: 5,
+        minZoom: 5,
+        id: 'mapbox.light',
+        accessToken: 'pk.eyJ1IjoibGF1dGlib25ldCIsImEiOiJjazA3MzcweGswMDVwM2ZwaW9pdXh1NzJ3In0.QJZpw_-PNziLLQHvcuA13w',
+        className: 'mapLayer',
     }).addTo(mymap);
     // var marker = L.marker([-34.59, -58.42]).addTo(mymap);
     var markers = new L.LayerGroup();
@@ -14,7 +15,7 @@ $(document).ready(function () {
         iconUrl: './images/logo-marker.png',
         iconSize: [72, 72]
     });
-    marker = L.marker([-34.29, -58.42], { icon: myIcon }).addTo(markers);;
+    marker = L.marker([-33.25, -58.34], { icon: myIcon }).addTo(markers);
     mymap.addLayer(markers);
 
 

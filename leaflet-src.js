@@ -2418,7 +2418,7 @@
 	// and optionally scaled by `scale`. Does not have an effect if the
 	// browser doesn't support 3D CSS transforms.
 	function setTransform(el, offset, scale) {
-		var pos = (offset && offset.round()) || new Point(0, 0);
+		var pos = offset || new Point(0, 0);
 
 		el.style[TRANSFORM] =
 			(ie3d ?
