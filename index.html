@@ -158,16 +158,18 @@
                             using
                             the form below.
                         </p>
-                        <ul>
-                            <li id="name"><input type="text" placeholder="Name">
-                                <span class="focus-border"></span></li>
-                            <li id="email"><input type="email" placeholder="Email">
-                                <span class="focus-border"></span></li>
-                            <li id="subject"><input type="text" placeholder="Subject">
-                                <span class="focus-border"></span></li>
-                            <li id="message"><textarea rows="4" placeholder="Message"></textarea>
-                                <span class="focus-border"></span></li>
-                        </ul>
+                        <form>
+                            <ul>
+                                <li class="name"><input id="name" type="text" placeholder="Name">
+                                    <span class="focus-border"></span></li>
+                                <li class="email"><input id="email" type="email" placeholder="Email">
+                                    <span class="focus-border"></span></li>
+                                <li class="subject"><input id="subject" type="text" placeholder="Subject">
+                                    <span class="focus-border"></span></li>
+                                <li class="message"><textarea id="message" rows="4" placeholder="Message"></textarea>
+                                    <span class="focus-border"></span></li>
+                            </ul>
+                        </form>
                         <button id="submit-form" class="button primary">Submit</button>
                     </div>
                 </div>
@@ -190,6 +192,8 @@
         </div>
 
 
+        <script src="https://www.gstatic.com/firebasejs/6.6.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>

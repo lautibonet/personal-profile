@@ -450,11 +450,11 @@ span.letter:hover {
     position: relative;
 }
 
-.contact-wrapper .form .form-content ul>li#name {
+.contact-wrapper .form .form-content ul>li.name {
     margin-right: .5rem;
 }
 
-.contact-wrapper .form .form-content ul>li#name, .contact-wrapper .form .form-content ul>li#email {
+.contact-wrapper .form .form-content ul>li.name, .contact-wrapper .form .form-content ul>li.email {
     flex-grow: 1;
     flex-basis: 0;
 }

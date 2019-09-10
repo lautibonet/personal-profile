@@ -1,6 +1,19 @@
 var _ctx;
 var _map;
 
+var firebaseConfig = {
+    apiKey: "AIzaSyDOoszQbTbCtqzaeueDp5OAOo7iKP4_V4w",
+    authDomain: "personalprofilepage-be5be.firebaseapp.com",
+    databaseURL: "https://personalprofilepage-be5be.firebaseio.com",
+    projectId: "personalprofilepage-be5be",
+    storageBucket: "",
+    messagingSenderId: "606352315067",
+    appId: "1:606352315067:web:62fdc987bd2f2e223f4f9e"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+var _messagesRef = firebase.database().ref('messages');
+
 $(document).ready(function () {
     initMap();
 
@@ -103,6 +116,15 @@ $(document).ready(function () {
             next();
         });
     });
+
+    $("#submit-form").click(function () {
+        let name = getInputVal('name');
+        let email = getInputVal('email');
+        let subject = getInputVal('subject');
+        let message = getInputVal('message');
+
+        saveMessage(name, email, subject, message);
+    });
 });
 
 function initMap() {
@@ -125,4 +147,18 @@ function initMap() {
     });
     marker = L.marker([-33.25, -58.34], { icon: myIcon }).addTo(markers);
     _map.addLayer(markers);
+}
+
+function saveMessage(name, email, subject, message) {
+    let newMessageRef = _messagesRef.push();
+    newMessageRef.set({
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+    });
+}
+
+function getInputVal(id) {
+    return document.getElementById(id).value;
 }
