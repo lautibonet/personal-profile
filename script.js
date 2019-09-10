@@ -157,6 +157,15 @@ function saveMessage(name, email, subject, message) {
         subject: subject,
         message: message
     });
+
+
+    $("form").trigger("reset");
+    $('#submit-form').text("Sent !");
+    $('#submit-form').addClass('success').delay(3000).queue(function (next) {
+        $('#submit-form').removeClass('success');
+        $('#submit-form').text("Submit");
+        next();
+    });
 }
 
 function getInputVal(id) {

@@ -60,6 +60,12 @@ button.primary:hover {
     color: #fff;
 }
 
+button.success {
+    border: rgb(115, 175, 85);
+    background-color: rgb(115, 175, 85);
+    color: #fff;
+}
+
 /* MENU
 ==================*/
 
@@ -433,7 +439,7 @@ span.letter:hover {
     flex-direction: column;
 }
 
-.contact-wrapper .form-content button {
+.contact-wrapper .form-content .submit-button {
     align-self: flex-end;
 }
 
