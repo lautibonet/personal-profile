@@ -37,7 +37,7 @@
 
     <div class="container">
 
-        <div id="home-wrapper" class="home-wrapper ">
+        <div id="home-wrapper" class="home-wrapper active">
             <h1>
                 <span class="letter">L</span>
                 <span class="letter">a</span>
@@ -137,32 +137,65 @@
             <canvas id="radar-chart"></canvas>
         </div>
 
-        <div id="contact-wrapper" class="contact-wrapper active">
-            <div></div>
-            <div class="map-popup">
-                <p>
-                    Palermo,<br>
-                    Capital Federal,<br>
-                    Buenos Aires,<br>
-                    Argentina.<br><br>
-                    <span>@</span>: lautibonet@gmail.com
-                </p>
+        <div id="contact-wrapper" class="contact-wrapper ">
+            <div class="contact-form">
+                <div class="form">
+                    <div class="form-content">
+                        <h1>
+                            <span class="letter">C</span>
+                            <span class="letter">o</span>
+                            <span class="letter">n</span>
+                            <span class="letter">t</span>
+                            <span class="letter">a</span>
+                            <span class="letter">c</span>
+                            <span class="letter">t&nbsp</span>
+                            <span class="letter">M</span>
+                            <span class="letter">e</span>
+                        </h1>
+                        <p>If you have any questions, you can find me on <a
+                                href="https://www.linkedin.com/in/lautaro-bonet-5ba9436a/"><b>LinkedIn</b></a> or you
+                            can contact me
+                            using
+                            the form below.
+                        </p>
+                        <ul>
+                            <li id="name"><input type="text" placeholder="Name">
+                                <span class="focus-border"></span></li>
+                            <li id="email"><input type="email" placeholder="Email">
+                                <span class="focus-border"></span></li>
+                            <li id="subject"><input type="text" placeholder="Subject">
+                                <span class="focus-border"></span></li>
+                            <li id="message"><textarea rows="4" placeholder="Message"></textarea>
+                                <span class="focus-border"></span></li>
+                        </ul>
+                        <button id="submit-form" class="button primary">Submit</button>
+                    </div>
+                </div>
+                <div class="map-popup">
+                    <p>
+                        Palermo,<br>
+                        Capital Federal,<br>
+                        Buenos Aires,<br>
+                        Argentina.<br><br>
+                        <span>@</span>: lautibonet@gmail.com
+                    </p>
+                </div>
+                <div class="map-wrapper">
+                    <div id="map"></div>
+                </div>
             </div>
-            <div class="map-wrapper">
-                <div id="map"></div>
-            </div>
+
+            <img class="mario" src="./images/mario.gif" alt="">
+
         </div>
 
-        <img class="mario" src="./images/mario.gif" alt="">
 
-    </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
-    <script src="./leaflet-src.js"></script>
-    <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/lettering.js/0.6.1/jquery.lettering.min.js"></script>
+        <script src="./leaflet-src.js"></script>
+        <script src="script.js"></script>
 
 </body>
 

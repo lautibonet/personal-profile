@@ -1,23 +1,8 @@
 var _ctx;
+var _map;
 
 $(document).ready(function () {
-    var mymap = L.map('map', { zoomControl: false }).setView([-35.50, -60.70], 5);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-        maxZoom: 5,
-        minZoom: 5,
-        id: 'mapbox.light',
-        accessToken: 'pk.eyJ1IjoibGF1dGlib25ldCIsImEiOiJjazA3MzcweGswMDVwM2ZwaW9pdXh1NzJ3In0.QJZpw_-PNziLLQHvcuA13w',
-        className: 'mapLayer',
-    }).addTo(mymap);
-    // var marker = L.marker([-34.59, -58.42]).addTo(mymap);
-    var markers = new L.LayerGroup();
-    var myIcon = L.icon({
-        iconUrl: './images/logo-marker.png',
-        iconSize: [72, 72]
-    });
-    marker = L.marker([-33.25, -58.34], { icon: myIcon }).addTo(markers);
-    mymap.addLayer(markers);
-
+    initMap();
 
     _ctx = document.getElementById('radar-chart').getContext('2d');
     var _chart = new Chart(_ctx, {
@@ -67,8 +52,6 @@ $(document).ready(function () {
             }
         }
     });
-
-    console.log(_chart);
 
     $('span.letter').hover(function () {
         $(this).addClass('rubberBand').delay(1000).queue(function (next) {
@@ -121,3 +104,25 @@ $(document).ready(function () {
         });
     });
 });
+
+function initMap() {
+    if (_map) {
+        return;
+    }
+    _map = L.map('map', { zoomControl: false }).setView([-35.50, -60.70], 5);
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        maxZoom: 5,
+        minZoom: 5,
+        id: 'mapbox.light',
+        accessToken: 'pk.eyJ1IjoibGF1dGlib25ldCIsImEiOiJjazA3MzcweGswMDVwM2ZwaW9pdXh1NzJ3In0.QJZpw_-PNziLLQHvcuA13w',
+        className: 'mapLayer',
+    }).addTo(_map);
+    var markers = new L.LayerGroup();
+    var myIcon = L.icon({
+        iconUrl: './images/logo-marker.png',
+        iconSize: [72, 72],
+        className: 'mapLogo'
+    });
+    marker = L.marker([-33.25, -58.34], { icon: myIcon }).addTo(markers);
+    _map.addLayer(markers);
+}

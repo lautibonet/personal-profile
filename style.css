@@ -13,6 +13,7 @@ body {
 a {
     color: inherit;
     cursor: pointer;
+    text-decoration: none;
 }
 
 a:hover {
@@ -21,6 +22,42 @@ a:hover {
 
 p {
     color: #b4b4b4;
+}
+
+h1 {
+    letter-spacing: -4px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul>li {
+    list-style: none;
+}
+
+:focus {
+    outline: none;
+}
+
+button.primary {
+    background-color: transparent;
+    border: 1px solid #0093ff;
+    color: #0093ff;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    transition: all 250ms ease;
+    border-radius: 2px;
+}
+
+button.primary:hover {
+    background-color: #0093ff;
+    color: #fff;
 }
 
 /* MENU
@@ -135,50 +172,17 @@ div[id$="wrapper"] {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+    transform: translate(-50%, -50%) scale(1, 1);
     transform-style: preserve-3d;
     width: 750px;
 }
 
 div[id$="wrapper"]:not(.active) {
     opacity: 0;
-    transform: translate(-50%, -50%) scale3d(.5, .5, 1);
+    transform: translate(-50%, -50%) scale(.5, .5);
     transform-style: preserve-3d;
+    z-index: -1 !important;
 }
-
-/* div#home-wrapper, div#profile-wrapper, div#skills-wrapper {
-    transition: width 250ms ease, opacity 500ms ease, transform 500ms ease;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 750px;
-    z-index: 1;
-}
-
-div#home-wrapper:not(.active), div#profile-wrapper:not(.active), div#skills-wrapper:not(.active) {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale3d(.5, .5, 1);
-    z-index: -10;
-}
-
-div#contact-wrapper {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    opacity: 1;
-    z-index: 1;
-    transition: opacity 250ms ease;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-div#contact-wrapper:not(.active) {
-    opacity: 0;
-    z-index: -10;
-} */
 
 .container {
     position: relative;
@@ -207,7 +211,6 @@ div#contact-wrapper:not(.active) {
     margin: 0;
     opacity: 0;
     animation: appear 1s ease forwards 2200ms;
-    letter-spacing: -4px;
 }
 
 div.description {
@@ -332,7 +335,6 @@ span.letter:hover {
     font-size: 2rem;
     font-weight: bold;
     margin: 0;
-    letter-spacing: -4px;
 }
 
 .logo {
@@ -371,16 +373,17 @@ span.letter:hover {
 }
 
 #contact-wrapper .map-wrapper {
+    z-index: 5;
     position: absolute;
     top: 0;
     left: 50%;
     width: 50%;
     height: 100%;
-    transition: width 500ms ease 250ms;
+    transition: left 500ms ease 250ms;
 }
 
 #contact-wrapper:not(.active) .map-wrapper {
-    width: 0;
+    left: 0;
 }
 
 #contact-wrapper:not(.active) .map-popup {
@@ -397,7 +400,7 @@ span.letter:hover {
     background-color: #fff;
     padding: 1rem;
     opacity: 1;
-    transition: top 1s ease 250ms, opacity 1s ease 250ms;
+    transition: top 1s ease 500ms, opacity 1s ease 500ms;
 }
 
 .contact-wrapper .map-popup p {
@@ -411,8 +414,85 @@ span.letter:hover {
     color: #0093ff;
 }
 
+.contact-wrapper .form {
+    background: #252627;
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 9;
+}
+
+.contact-wrapper .form .form-content {
+    margin: 0 auto;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-wrapper .form-content button {
+    align-self: flex-end;
+}
+
+.contact-wrapper .form .form-content ul {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.contact-wrapper .form .form-content ul>li {
+    margin-bottom: .5rem;
+    flex: 0 1 100%;
+    position: relative;
+}
+
+.contact-wrapper .form .form-content ul>li#name {
+    margin-right: .5rem;
+}
+
+.contact-wrapper .form .form-content ul>li#name, .contact-wrapper .form .form-content ul>li#email {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.contact-wrapper .form input, .contact-wrapper .form textarea {
+    background-color: #2e2e2e;
+    width: 100%;
+    padding: .5rem;
+    color: #fff;
+    border: 0;
+}
+
+.contact-wrapper .form input~.focus-border, .contact-wrapper .form textarea~.focus-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0093ff;
+    transition: 250ms;
+}
+
+.contact-wrapper .form input:focus~.focus-border, .contact-wrapper .form textarea:focus~.focus-border {
+    width: 100%;
+    transition: 250ms;
+    left: 0;
+}
+
+.contact-wrapper .form input {
+    height: 42px;
+}
+
 #map .mapLayer {
     filter: hue-rotate(0) invert(100%);
+}
+
+#map .mapLogo {
+    filter: invert(1) grayscale(1);
 }
 
 #map {
@@ -431,25 +511,25 @@ span.letter:hover {
 
 @keyframes rubberBand {
     from {
-        transform: scale3d(1, 1, 1);
+        transform: scale(1, 1);
     }
     30% {
-        transform: scale3d(1.25, 0.75, 1);
+        transform: scale(1.25, 0.75);
     }
     40% {
-        transform: scale3d(0.75, 1.25, 1);
+        transform: scale(0.75, 1.25);
     }
     50% {
-        transform: scale3d(1.15, 0.85, 1);
+        transform: scale(1.15, 0.85);
     }
     65% {
-        transform: scale3d(.95, 1.05, 1);
+        transform: scale(.95, 1.05);
     }
     75% {
-        transform: scale3d(1.05, .95, 1);
+        transform: scale(1.05, .95);
     }
     to {
-        transform: scale3d(1, 1, 1);
+        transform: scale(1, 1);
     }
 }
 
