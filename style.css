@@ -196,7 +196,7 @@ div[id$="wrapper"]:not(.active) {
     height: 100vh;
     background: #252627;
     overflow: hidden;
-    z-index: 5;
+    z-index: 1;
 }
 
 .home-wrapper {
@@ -216,7 +216,7 @@ div[id$="wrapper"]:not(.active) {
     font-weight: 300;
     margin: 0;
     opacity: 0;
-    animation: appear 1s ease forwards 2200ms;
+    animation: appear 1s ease forwards 2500ms;
 }
 
 div.description {
@@ -227,15 +227,15 @@ div.description {
 .description>svg {
     align-self: flex-end;
     opacity: 0;
-    animation: appear 1s ease forwards 2200ms;
+    animation: appear 1s ease forwards 2500ms;
 }
 
 svg>g.fill {
-    animation: fill 0.5s ease forwards 2200ms;
+    animation: fill 0.5s ease forwards 2500ms;
 }
 
 svg>g.fill-blue {
-    animation: fill-blue 0.5s ease forwards 2200ms;
+    animation: fill-blue 0.5s ease forwards 2500ms;
 }
 
 svg#first>g:nth-child(1) path {
@@ -283,13 +283,13 @@ svg#second>g:nth-child(3) path {
 svg#second>g:nth-child(4) path {
     stroke-dasharray: 250;
     stroke-dashoffset: 250;
-    animation: line-anim 2s ease forwards .07s;
+    animation: line-anim 2s ease forwards .7s;
 }
 
 svg#second>g:nth-child(5) path {
     stroke-dasharray: 336;
     stroke-dashoffset: 336;
-    animation: line-anim 2s ease forwards 0.8s;
+    animation: line-anim 2s ease forwards 0.6s;
 }
 
 span.letter {
@@ -313,7 +313,7 @@ span.letter:hover {
     animation: mario-run-left 5s linear 2.8s;
     border-bottom: 1px solid rgba(0, 0, 0, .3);
     border-radius: 1px;
-    z-index: 10;
+    z-index: 15;
 }
 
 @media (max-width:992px) {
@@ -334,7 +334,7 @@ span.letter:hover {
     }
 }
 
-/* ABOUT
+/* PROFILE
 ==================*/
 
 .profile-wrapper>h1 {
@@ -369,13 +369,83 @@ span.letter:hover {
     width: 250px;
 }
 
+.history {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: .5rem 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.history-item:hover {
+    background-color: #181818;
+}
+
+.history-item-logo>img {
+    width: 72px;
+    margin-right: 1rem;
+    border-radius: 4px;
+    display: block;
+}
+
+.history-item-info {
+    color: #b4b4b4;
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item-title {
+    margin: 0;
+    color: #fff;
+    margin-bottom: .25rem;
+}
+
+.history-item-company {
+    margin-bottom: .125rem;
+}
+
+.history-item-company, .history-item-duration {
+    font-size: .8rem;
+}
+
+.divider {
+    color: #fff;
+    font-size: .8rem;
+    margin: .5rem 0;
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.divider>span {
+    background-color: #252627;
+    padding: 0 .75rem;
+}
+
+.divider::before {
+    border-top: 1px solid #b4b4b4;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
 /* CONTACT
 ===================*/
 
 #contact-wrapper {
     width: 100%;
     height: 100%;
-    z-index: 20;
+    z-index: 10;
 }
 
 #contact-wrapper .map-wrapper {
@@ -504,6 +574,38 @@ span.letter:hover {
 #map {
     height: 100%;
     width: 100%;
+}
+
+@media (max-width:1200px) {
+    .contact-wrapper .form .form-content {
+        width: 450px;
+    }
+}
+
+@media (max-width:992px) {
+    .contact-wrapper .form .form-content {
+        width: 350px;
+    }
+}
+
+@media (max-width:768px) {
+    .contact-wrapper .map-popup {
+        display: none;
+    }
+    #contact-wrapper .map-wrapper {
+        width: 100%;
+        left: 0;
+    }
+    .contact-wrapper .form {
+        width: 100%;
+        background-color: transparent;
+    }
+    .contact-wrapper .form .form-content {
+        width: 320px;
+        background-color: rgba(0, 0, 0, 1);
+        padding: 1rem;
+        border-radius: 4px;
+    }
 }
 
 /* ANIMATIONS
