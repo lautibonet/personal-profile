@@ -118,10 +118,14 @@ $(document).ready(function () {
     });
 
     $("#submit-form").click(function () {
-        let name = getInputVal('name');
-        let email = getInputVal('email');
-        let subject = getInputVal('subject');
-        let message = getInputVal('message');
+        let name = getInputVal('name'),
+            email = getInputVal('email'),
+            subject = getInputVal('subject'),
+            message = getInputVal('message');
+
+        if (!isFormValid()) {
+            return;
+        }
 
         saveMessage(name, email, subject, message);
     });
@@ -170,4 +174,14 @@ function saveMessage(name, email, subject, message) {
 
 function getInputVal(id) {
     return document.getElementById(id).value;
+}
+
+function isFormValid() {
+    let isValid = true;
+    $(".form-input").each(function (i) {
+        if (!$(this).text() || $(this).text() == '') {
+            isValid = false;
+        }
+    });
+    return isValid;
 }
