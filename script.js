@@ -1,4 +1,3 @@
-var _ctx;
 var _map;
 
 var firebaseConfig = {
@@ -16,55 +15,6 @@ var _messagesRef = firebase.database().ref('messages');
 
 $(document).ready(function () {
     initMap();
-
-    _ctx = document.getElementById('radar-chart').getContext('2d');
-    var _chart = new Chart(_ctx, {
-        type: 'radar',
-        data: {
-            labels: ['JAVA', 'Angular', 'SQL', 'Javascript', 'CSS', 'Flutter'],
-            datasets: [{
-                label: 'Skill Level',
-                data: [90, 90, 70, 75, 75, 60],
-                backgroundColor: [
-                    'rgba(221, 3, 48, 0.5)',
-                ],
-                borderColor: [
-                    'rgba(221, 3, 48, 1)',
-                ]
-            }]
-        },
-        options: {
-            defaultColor: 'rgba(0, 147, 255, 1)',
-            defaultFontColor: 'rgba(0, 147, 255, 1)',
-            defaultFontFamily: "'Montserrat', sans-serif",
-            tooltips: {
-                enabled: false
-            },
-            legend: {
-                display: false
-            },
-            legend: {
-                display: false
-            },
-            scale: {
-                gridLines: {
-                    color: 'rgba(0,0,0,.7)'
-                },
-                angleLines: {
-                    color: 'rgba(0,0,0,.7)'
-                },
-                pointLabels: {
-                    fontSize: '15'
-                },
-                ticks: {
-                    beginAtZero: true,
-                    max: 100,
-                    min: 0,
-                    stepSize: 25
-                }
-            }
-        }
-    });
 
     $('span.letter').hover(function () {
         $(this).addClass('rubberBand').delay(1000).queue(function (next) {
