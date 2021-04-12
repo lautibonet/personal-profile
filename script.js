@@ -86,10 +86,10 @@ function initMap() {
         return;
     }
     _map = L.map('map', { zoomControl: false }).setView([-35.50, -60.70], 5);
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         maxZoom: 5,
         minZoom: 5,
-        id: 'mapbox.light',
+        id: 'mapbox/light-v10',
         accessToken: 'pk.eyJ1IjoibGF1dGlib25ldCIsImEiOiJjazA3MzcweGswMDVwM2ZwaW9pdXh1NzJ3In0.QJZpw_-PNziLLQHvcuA13w',
         className: 'mapLayer',
     }).addTo(_map);
